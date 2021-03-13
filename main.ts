@@ -108,7 +108,6 @@ function come_abaj () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     info.changeScoreBy(1)
     music.footstep.play()
-    pause(100)
     tiles.setTileAt(location, assets.tile`myTile3`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Premio, function (sprite, otherSprite) {
@@ -257,6 +256,9 @@ function come_izq () {
         `)
     pause(25)
 }
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+    game.over(false, effects.clouds)
+})
 function come_dcha () {
     yo.setImage(img`
         . . . . e e e e e e . . . . 
@@ -367,6 +369,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, l
     music.jumpUp.play()
     pause(100)
     tiles.setTileAt(location, assets.tile`myTile3`)
+    Fondos()
 })
 function Fondos () {
     color = randint(1, 16)
